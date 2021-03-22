@@ -6,6 +6,7 @@ import os
 env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
 
+# Autenticação com a API
 try:
     read_input = raw_input
 except NameError:
@@ -31,6 +32,8 @@ print("Cole link: {url}".format(url=authorize_url))
 pin = read_input('Digite o PIN')
 
 session = twitter.get_auth_session(request_token,request_token_secret,method='POST',data={'oauth_verifier':pin})
+
+# Exemplo de busca de tweets
 
 params = {'q':'lockdown',
             }
